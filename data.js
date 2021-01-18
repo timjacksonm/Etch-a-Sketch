@@ -7,7 +7,9 @@
    const content = container.querySelectorAll('div');
 
    content.forEach((div) => {
-   div.setAttribute('class', 'gridSquares')
+   div.setAttribute('class', 'gridSquares');
+   div.addEventListener('mousemove', function colorDivGrid() {
+       div.setAttribute('class', 'color');
+   } )
    }
 );
-
