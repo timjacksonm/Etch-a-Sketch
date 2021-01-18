@@ -4,6 +4,7 @@ body {
   height: 100vh;
   align-content: center;
   justify-content: center;
+  grid-template-rows: 1fr 3fr 0fr;
 }
 #container {
   display: grid;
@@ -13,12 +14,20 @@ body {
   width: 50vh;
   background-color: white;
   border-style: solid;
+  grid-row-start: 2;
+  border-color: black;
 }
 
 .gridSquares {
   border-style: solid;
+  border-color: black !important;
 }
 
 .color {
   background-color: blue;
+}
+.buttonStyles {
+  grid-row-start: 1;
+  height: 20px;
+  width: 50px;
 }
