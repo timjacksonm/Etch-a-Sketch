@@ -82,8 +82,16 @@ function removeElements() {
     )
 }
 function promptChoice() {
-    input = prompt("How big do you want the grid? max of 64x64" , "16, 36, 64, 100, 144");
-    return input;
+    input = prompt("Enter New Grid Size\n e.g. default size is 16x16" , "16, 36, 64, 100");
+
+    arrayList = [16, 36, 64, 100]
+
+    if (arrayList.includes(Number(input))) {
+        return input;
+    } else
+    alert("Not a valid Choice. Try again.")
+    promptChoice();
+    
 }
 
 clearButton();
