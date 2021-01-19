@@ -8,8 +8,6 @@ body {
 }
 #container {
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-columns: repeat(4, 1fr);
   height: 50vh;
   width: 50vh;
   background-color: white;
@@ -29,5 +27,5 @@ body {
 .buttonStyles {
   grid-row-start: 1;
   height: 20px;
-  width: 50px;
+  width: 80px;
 }
