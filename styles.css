@@ -1,31 +1,61 @@
 body {
-  background-color: grey;
+  background-color: rgba(4, 34, 63, 0.645);
   display: grid;
-  height: 100vh;
+  height: 90vh;
   align-content: center;
   justify-content: center;
-  grid-template-rows: 1fr 3fr 0fr;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "new clear rgb"
+    "contain contain contain"
+    "rules rules rules";
 }
 #container {
+  grid-area: contain;
   display: grid;
-  height: 50vh;
-  width: 50vh;
+  height: 60vh;
+  width: 60vh;
   background-color: white;
   border-style: solid;
-  grid-row-start: 2;
   border-color: black;
+  border-width: 1px;
 }
 
 .gridSquares {
   border-style: solid;
-  border-color: black !important;
+  border-color: black;
+  border-width: 1px;
 }
 
 .color {
   background-color: black;
 }
 .buttonStyles {
-  grid-row-start: 1;
-  height: 20px;
+  height: 30px;
   width: 80px;
+  align-self: center;
+  justify-self: center;
+}
+
+#rules {
+  grid-area: rules;
+  grid-column: 2;
+  width: 400px;
+  white-space: pre;
+  text-align: center;
+  font-size: larger;
+  color: rgb(2, 196, 240);
+  font-weight: bold;
+  outline-style: dashed;
+  height: auto;
+}
+#newGridButton {
+  grid-area: new;
+}
+#clearButton {
+  grid-area: clear;
+}
+#rgbButton {
+  grid-area: rgb;
 }
