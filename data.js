@@ -1,8 +1,8 @@
 function createGrid() {
    const container = document.querySelector('#container');
-   let x = 16;
-   let y = Math.sqrt(x);
-   let z = Math.round(y * 1) / 1;
+   let x = 16*16; // I am now aware getting sqrt of x and rounding was pretty useless. 
+   let y = Math.sqrt(x); // when I could just have the user choose a size per side.
+   let z = Math.round(y * 1) / 1; // just going to leave it as is for now. As I learned how to use these two functions. 
    container.style.cssText = 'grid-template-rows: repeat(' + z + ', 1fr); grid-template-columns: repeat(' + z + ', 1fr)';
 
    for(let i=0; i < x; i++) {
@@ -23,12 +23,12 @@ function createGrid() {
 function createNewGrid() {
     const container = document.querySelector('#container');
 
-    let input = arguments[0];
-    let y = Math.sqrt(input);
+    let input1 = input*input; // changed arguments[0] per suggestion since I am already passing input into the function when I call it. no need to retrieve arguments[0] 
+    let y = Math.sqrt(input1);// again leaving as is since I learned this was not necessary to use sqrt / round
     let z = Math.round(y * 1) / 1;
     container.style.cssText = 'grid-template-rows: repeat(' + z + ', 1fr); grid-template-columns: repeat(' + z + ', 1fr)';
     
-    for(let i=0; i < input; i++) {
+    for(let i=0; i < input1; i++) {
         container.appendChild(document.createElement('div'));
     }
  
@@ -83,9 +83,9 @@ function removeElements() {
     )
 };
 function promptChoice() {
-    input = prompt("Enter New Grid Size\n e.g. default size is 16x16" , "16, 36, 64, 100");
+    input = prompt("Enter New Grid Size\n e.g. default size is 16x16" , "Choose between 1-50");
 
-    arrayList = [16, 36, 64, 100]
+    arrayList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
 
     if (arrayList.includes(Number(input))) {
         return input;
@@ -95,13 +95,14 @@ function promptChoice() {
     
 };
 function randomNum(min, max) {
-    x1 = Math.random() * (max - min) + min;
-    x = Math.round(x1 * 1) / 1;
-    y1 = Math.random() * (max - min) + min;
-    y = Math.round(y1 * 1) / 1;
-    z1 = Math.random() * (max - min) + min;
-    z = Math.round(z1 * 1) / 1;
-    return x, y, z;
+    const x1 = Math.random() * (max - min) + min;
+    const x = Math.round(x1 * 1) / 1;
+    const y1 = Math.random() * (max - min) + min;
+    const y = Math.round(y1 * 1) / 1;
+    const z1 = Math.random() * (max - min) + min;
+    const z = Math.round(z1 * 1) / 1
+
+    return [x, y, z];
 };
 function colorRGB() {
     const container = document.querySelector('#container');
@@ -110,8 +111,9 @@ function colorRGB() {
    content.forEach((div) => {
    div.setAttribute('class', 'gridSquares');
    div.addEventListener('mousemove', function colorDivGridRGB() {
-       randomNum(1, 255); // returns random value for x y z
-       div.style.cssText = 'background-color: rgb('+z+','+y+',155)'; // can add Z with --> '+z+'
+       numbers = randomNum(1, 255); // returns random value for x y z
+    
+       div.style.cssText = 'background-color: rgb('+numbers[0]+','+numbers[1]+','+numbers[2]+')';
                 } 
             )
         }
