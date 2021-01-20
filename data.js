@@ -20,6 +20,19 @@ function createGrid() {
         }
     )
 };
+function defaultColor() {
+    const content = container.querySelectorAll('div');
+
+    content.forEach((div) => {
+        div.setAttribute('class', 'gridSquares');
+        div.addEventListener('mousemove', function defaultColorDivGrid() {
+            div.setAttribute('class', 'color gridSquares');
+                     }
+                 )
+             }
+         )
+
+}
 function createNewGrid() {
     const container = document.querySelector('#container');
 
@@ -50,7 +63,7 @@ function clearButton() {
     body.appendChild(createButton);
     createButton.classList.add('buttonStyles');
     createButton.setAttribute('id', 'clearButton');
-    createButton.setAttribute('onClick', 'removeClass()')
+    createButton.setAttribute('onClick', 'removeClass(); cloneNodeReset(); defaultColor();')
     createButton.textContent = 'Clear';
 };
 function newGridButton() {
@@ -139,6 +152,19 @@ function addRules() {
     createPara.setAttribute('id', 'rules');
     createPara.textContent = 'Welcome to Etch-a-Sketch!' + newLine + 'Hover over grid to color.' + newLine + 'Click "RGB" for random colors.' + newLine + 'Click "New Grid" for different sizes.';
 };
+function cloneNodeReset() {
+    // This function is just to help the clear button reset to the default black color.
+    //cloning and replacing all the divs to remove eventListeners.
+    const container = document.querySelector('#container');
+
+    x = container.cloneNode(true);
+
+    container.remove();
+
+    const body = document.querySelector('#body');
+
+    body.appendChild(x);
+}
 addRules();
 clearButton();
 rgbButton();
